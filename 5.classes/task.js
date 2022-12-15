@@ -84,13 +84,12 @@ class Library{
         return null; 
     }
 
-    giveBookByName(bookName){   
-        let book = this.findBookBy(bookName);
-        if (book === null) {
+    giveBookByName(bookName){     // если условие истинно то вернется индекс искомого эл-на = метод findIndex
+        const index = this.books.findIndex((book) => book.bookName === bookName); // у искомой книги название (bookName) должно быть равно искомому, вводимому. Производим поиск индекса среди книг. 
+        if (index === null){
             return null;
-        } else {
-            return this.books.splice(book, 1)[0]; 
+        } else {              
+            return this.books.splice(index, 1)[0];
         }
     }
-
 }
